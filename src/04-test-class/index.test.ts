@@ -7,6 +7,10 @@ import {
 } from './index';
 
 describe('BankAccount', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+    jest.clearAllTimers();
+  });
   test('should create account with initial balance', () => {
     const acc = new BankAccount(10);
     const result = acc.getBalance();
@@ -59,9 +63,9 @@ describe('BankAccount', () => {
     const randomSpy = jest
       .spyOn(lodash, 'random')
       .mockReturnValueOnce(42)
-      .mockReturnValueOnce(0);
+      .mockReturnValueOnce(1);
     const acc = new BankAccount(10);
-    await expect(acc.fetchBalance()).resolves.toBeNull();
+    await expect(acc.fetchBalance()).resolves.toBe(42);
     randomSpy.mockRestore();
   });
 

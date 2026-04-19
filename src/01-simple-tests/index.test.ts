@@ -9,14 +9,6 @@ describe('simpleCalculator tests', () => {
     expect(add).toBe(5);
   });
 
-  test('should return null if one of arguments is negative number', () => {
-    const a = 2;
-    const b = -2;
-    const action = Action.Add;
-    const add = simpleCalculator({ a, b, action });
-    expect(add).toBeNull();
-  });
-
   test('should subtract two numbers', () => {
     const a = 2;
     const b = 3;

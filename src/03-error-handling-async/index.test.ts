@@ -14,9 +14,7 @@ describe('resolveValue', () => {
 
 describe('throwError', () => {
   test('should throw error with provided message', () => {
-    expect(async () => throwError('error message')).rejects.toThrow(
-      'error message',
-    );
+    expect(() => throwError('error message')).toThrow('error message');
   });
 
   test('should throw error with default message if message is not provided', async () => {

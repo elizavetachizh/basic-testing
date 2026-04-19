@@ -32,14 +32,10 @@ describe('doStuffByTimeout', () => {
   test('should set timeout with provided callback and timeout', () => {
     const callback = jest.fn();
     const timeout = 1000;
-    // Callback should not be called yet
 
     doStuffByTimeout(callback, timeout);
     expect(callback).not.toHaveBeenCalled();
-    // Fast-forward 1000ms (1 second)
     jest.advanceTimersByTime(timeout);
-
-    // Now the callback should have been executed
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
